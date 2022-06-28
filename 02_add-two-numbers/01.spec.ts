@@ -1,5 +1,6 @@
-import {addTwoNumbers, ListNode} from "./01";
+import {addTwoNumbers} from "./01";
 import {expect} from "chai";
+import {ListNode, newList, testListNode} from "../common/linked-list";
 
 describe('add_two_numbers', () => {
     const cases: {
@@ -44,29 +45,3 @@ describe('add_two_numbers', () => {
         })
     })
 })
-
-export function newList(number: number): ListNode {
-    const digits = number.toString().split('').map(Number);
-
-    let prevListNode = null
-
-    for (let i = 0; i < digits.length; i++) {
-        prevListNode = new ListNode(digits[i], prevListNode)
-    }
-
-    return prevListNode as ListNode
-}
-
-function testListNode(number: number, result: ListNode) {
-    const digits = number.toString().split('').map(Number);
-
-    expect(result.val).equals(digits[digits.length - 1])
-    if(digits.length > 1) {
-        expect(result).is.not.null
-        expect(result.next).instanceof(ListNode)
-
-        testListNode(+digits.slice(0, digits.length - 1).join(''), result.next as ListNode)
-    } else {
-        expect(result.next).is.null
-    }
-}
