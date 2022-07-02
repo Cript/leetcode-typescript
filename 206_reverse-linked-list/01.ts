@@ -19,17 +19,15 @@ export function reverseList(head: ListNode | null): ListNode | null {
 }
 
 export function reverseList2(head: ListNode | null): ListNode | null {
-    if (head === null) return null
-
-    return reverseListRecursive(head, null)
+    return reverseListRecursive2(head, null)
 }
 
-function reverseListRecursive(head: ListNode | null, newHead: ListNode | null): ListNode {
+function reverseListRecursive2(head: ListNode | null, newHead: ListNode | null): ListNode {
     if (head === null) return newHead as ListNode
 
     const next = head.next
 
     head.next = newHead
 
-    return reverseListRecursive(next, head)
+    return reverseListRecursive2(next, head)
 }
