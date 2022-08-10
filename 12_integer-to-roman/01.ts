@@ -4,7 +4,7 @@ interface RomanNumerals {
 }
 
 export function intToRoman(num: number): string {
-    const numbers: RomanNumerals[] = [
+    const numerals: RomanNumerals[] = [
         {value: 1000, symbol: "M"},
         {value: 900, symbol: "CM"},
         {value: 500, symbol: "D"},
@@ -22,7 +22,7 @@ export function intToRoman(num: number): string {
 
     let result = ""
 
-    for (const numeral of Object.values(numbers)) {
+    for (const numeral of numerals) {
         while (num >= numeral.value) {
             result += numeral.symbol
             num -= numeral.value

@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {intToRoman} from "./01";
 
-describe('max_area', () => {
+describe('Integer to Roman', () => {
     const cases: {
         num: number,
         result: string
