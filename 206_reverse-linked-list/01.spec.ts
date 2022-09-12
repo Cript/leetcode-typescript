@@ -1,18 +1,19 @@
 import {expect} from "chai";
 import {reverseList, reverseList2} from "./01";
-import {ListNode, newList, testListNode} from "../common/linked-list";
+import {listToArray, newList} from "../common/linked-list";
 
 describe('Reverse Linked List', () => {
     const cases: {
         list: number[],
+        expected: number[],
     }[] = [
-        { list: [] },
-        { list: [1,2,3,4,5] },
-        { list: [1,2] }
+        {list: [], expected: []},
+        {list: [1, 2, 3, 4, 5], expected: [5, 4, 3, 2, 1]},
+        {list: [1, 2], expected: [2, 1]}
     ]
 
     describe(`Iterative`, () => {
-        cases.forEach(({list}) => {
+        cases.forEach(({list, expected}) => {
             describe(`When called with ${list}`, () => {
                 it(`should return ${list.reverse()}`, () => {
                     if (list.length === 0) {
@@ -21,19 +22,14 @@ describe('Reverse Linked List', () => {
                     }
 
                     const result = reverseList(newList(list))
-
-                    expect(result).not.null
-
-                    const reverseListNumber = parseInt(list.reverse().join(''))
-
-                    testListNode(reverseListNumber, result as ListNode)
+                    expect(listToArray(result)).eqls(expected)
                 })
             })
         })
     })
 
     describe(`Recursive`, () => {
-        cases.forEach(({list}) => {
+        cases.forEach(({list, expected}) => {
             describe(`When called with ${list}`, () => {
                 it(`should return ${list.reverse()}`, () => {
                     if (list.length === 0) {
@@ -42,12 +38,7 @@ describe('Reverse Linked List', () => {
                     }
 
                     const result = reverseList2(newList(list))
-
-                    expect(result).not.null
-
-                    const reverseListNumber = parseInt(list.reverse().join(''))
-
-                    testListNode(reverseListNumber, result as ListNode)
+                    expect(listToArray(result)).eqls(expected)
                 })
             })
         })

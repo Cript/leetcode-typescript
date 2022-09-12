@@ -1,5 +1,3 @@
-import {expect} from "chai";
-
 export class ListNode {
     val: number
     next: ListNode | null
@@ -10,30 +8,29 @@ export class ListNode {
     }
 }
 
-export function newList(numbers: number[]): ListNode {
-    let prevListNode = null
+export function listToArray(listNode: ListNode | null): number[] {
+    const numbers: number[] = []
 
-    for (let i = 0; i < numbers.length; i++) {
-        prevListNode = new ListNode(numbers[i], prevListNode)
+    while (true) {
+        if (listNode === null) {
+            return numbers
+        }
+
+        numbers.push(listNode.val)
+        listNode = listNode.next
     }
-
-    return prevListNode as ListNode
 }
 
-export function numberToArray(number: number): number[] {
-    return number.toString().split('').map(Number)
-}
-
-export function testListNode(number: number, result: ListNode) {
-    const digits = number.toString().split('').map(Number);
-
-    expect(result.val).equals(digits[digits.length - 1])
-    if(digits.length > 1) {
-        expect(result).is.not.null
-        expect(result.next).instanceof(ListNode)
-
-        testListNode(+digits.slice(0, digits.length - 1).join(''), result.next as ListNode)
-    } else {
-        expect(result.next).is.null
+export function newList(numbers: number[]): ListNode | null {
+    if (numbers.length === 0) {
+        return null
     }
+
+    let nextListNode = null
+
+    for (let i = numbers.length - 1; i >=0 ; i--) {
+        nextListNode = new ListNode(numbers[i], nextListNode)
+    }
+
+    return nextListNode as ListNode
 }
