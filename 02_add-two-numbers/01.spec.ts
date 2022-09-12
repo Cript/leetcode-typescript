@@ -1,6 +1,6 @@
 import {addTwoNumbers} from "./01";
 import {expect} from "chai";
-import {ListNode, newList, testListNode} from "../common/linked-list";
+import {ListNode, newList, numberToArray, testListNode} from "../common/linked-list";
 
 describe('add_two_numbers', () => {
     const cases: {
@@ -19,7 +19,10 @@ describe('add_two_numbers', () => {
     cases.forEach(({l1, l2, result}) => {
         describe(`When called with ${l1} and ${l2}`, function() {
             it(`addTwoNumbers: should return ${result}`, function() {
-                expect(addTwoNumbers(newList(l1), newList(l2))).eqls(newList(result))
+                expect(addTwoNumbers(
+                    newList(numberToArray(l1)),
+                    newList(numberToArray(l2))
+                )).eqls(newList(numberToArray(result)))
             })
         })
     })
@@ -39,7 +42,7 @@ describe('add_two_numbers', () => {
         cases.forEach(({number, result}) => {
             describe(`When called with ${number}`, function() {
                 it(`newList: should return correct ListNode`, function() {
-                    testListNode(number, newList(number))
+                    testListNode(number, newList(numberToArray(number)))
                 })
             })
         })

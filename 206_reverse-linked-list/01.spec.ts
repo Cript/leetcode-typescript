@@ -20,8 +20,7 @@ describe('Reverse Linked List', () => {
                         return
                     }
 
-                    const listNumber = parseInt(list.join(''))
-                    const result = reverseList(newList(listNumber))
+                    const result = reverseList(newList(list))
 
                     expect(result).not.null
 
@@ -42,8 +41,7 @@ describe('Reverse Linked List', () => {
                         return
                     }
 
-                    const listNumber = parseInt(list.join(''))
-                    const result = reverseList2(newList(listNumber))
+                    const result = reverseList2(newList(list))
 
                     expect(result).not.null
 

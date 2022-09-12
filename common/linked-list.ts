@@ -10,16 +10,18 @@ export class ListNode {
     }
 }
 
-export function newList(number: number): ListNode {
-    const digits = number.toString().split('').map(Number);
-
+export function newList(numbers: number[]): ListNode {
     let prevListNode = null
 
-    for (let i = 0; i < digits.length; i++) {
-        prevListNode = new ListNode(digits[i], prevListNode)
+    for (let i = 0; i < numbers.length; i++) {
+        prevListNode = new ListNode(numbers[i], prevListNode)
     }
 
     return prevListNode as ListNode
+}
+
+export function numberToArray(number: number): number[] {
+    return number.toString().split('').map(Number)
 }
 
 export function testListNode(number: number, result: ListNode) {

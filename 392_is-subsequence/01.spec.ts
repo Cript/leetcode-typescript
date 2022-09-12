@@ -9,7 +9,7 @@ describe('Is Subsequence', () => {
     }[] = [
         {s: "", t: "ahbgdc", result: true},
         {s: "a", t: "", result: false},
-        {s: "", t: "", result: false},
+        {s: "", t: "", result: true},
         {s: "abc", t: "ahbgdc", result: true},
         {s: "axc", t: "ahbgdc", result: false},
     ]
