@@ -6,8 +6,8 @@ describe('First Bad Version', () => {
         n: number,
         bad: number
     }[] = [
-        // { n: 5, bad: 4 },
-        // { n: 1, bad: 1 },
+        { n: 5, bad: 4 },
+        { n: 1, bad: 1 },
         { n: 2, bad: 2 },
     ]
 
