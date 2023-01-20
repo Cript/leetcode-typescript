@@ -1,5 +1,7 @@
 import {expect} from "chai";
-import {inorderTraversal, inorderTraversalIter, TreeNode} from "./01";
+import {TreeNode} from "../common/tree";
+import {inorderTraversal} from "./01";
+import {inorderTraversalIter} from "./02";
 
 describe('Binary Tree Inorder Traversal', () => {
     describe(`inorderTraversal`, () => {
